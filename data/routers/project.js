@@ -1,5 +1,5 @@
 const express = require("express")
-const { validateProjectData } = require("../middleware/validate")
+const { validateProjectData, validateProjectId } = require("../middleware/validate")
 const projects = require("../helpers/projectModel")
 
 const router = express.Router()
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", validateProjectData(), (req, res) => {
-    projects.add(req.body)
+    projects.insert(req.body)
       .then(project => {
         res.status(201).json(project)
       })
@@ -24,7 +24,7 @@ router.post("/", validateProjectData(), (req, res) => {
       })
   })
   
-  router.put("/:id", validateProjectData(), (req, res) => {
+  router.put("/:id", validateProjectData(), validateProjectId(), (req, res) => {
     projects.update(req.project.id, req.body)
       .then(project => {
           res.status(200).json(project)
@@ -34,7 +34,7 @@ router.post("/", validateProjectData(), (req, res) => {
       })
   })
   
-  router.delete("/:id", validateProjectData(), (req, res) => {
+  router.delete("/:id", validateProjectId(), (req, res) => {
     projects.remove(req.project.id)
       .then(project => {
           res.status(200).json({ message: "The project has been DESTROYED" })
