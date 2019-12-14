@@ -1,8 +1,11 @@
 const express = require("express")
 const { validateProjectData, validateProjectId } = require("../middleware/validate")
+const actionsRouter = require("./actions")
 const projects = require("../helpers/projectModel")
 
 const router = express.Router()
+
+router.use("/:id/actions", actionsRouter)
 
 router.get("/", (req, res) => {
     projects.get(res.body)
