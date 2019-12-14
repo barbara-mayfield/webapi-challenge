@@ -2,7 +2,7 @@ import { projectConstants } from '../actions/types';
 
 export const initialState = {
     projects: [],
-    project: {}
+    actions: []
 }
 
 export default function postReducer(state = initialState, action) {
