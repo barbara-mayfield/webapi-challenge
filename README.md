@@ -40,13 +40,26 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+ Express is a framework that lets you structure a web app to handle multiple http
+ requests at a specific url. 
+ 
+ One part is server-side routing and the other is being able to use Express middlewares
+ to add more functionality to our applications.
+
 - [ ] Describe Middleware?
+
+ Middleware is a software that provides services and capabilities to apps outside
+ of what is offered by the os. Messaging, authentication, and API management are all
+ commonly handled by middleware.
 
 - [ ] Describe a Resource?
 
 - [ ] What can the API return to help clients know if a request was successful?
+ An API can return a success message with a status code such as "User has been created".
 
 - [ ] How can we partition our application into sub-applications?
+In using Express we can do this very easily using server-side routing and importing your application files.
+
 
 ## Minimum Viable Product
 
